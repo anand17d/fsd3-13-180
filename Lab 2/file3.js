@@ -19,10 +19,11 @@ const appendData=async(fname,contents)=>{
     await appendFile(fname,'\n'+contents)
 };
 
-await writeData("happy.txt","I am very happy");
+//await writeData("happy.txt","I am very happy");
 
-await readData("happy.txt");
+// await readData("happy.txt");
 
-await writeData("happy.txt","I am very happy");
+// await writeData("happy.txt","I am very happy");
 
-await readData("happy.txt");
+// await readData("happy.txt");
+
