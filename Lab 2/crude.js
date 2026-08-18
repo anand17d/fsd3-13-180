@@ -10,6 +10,11 @@ const getcart=async ()=>{
     const data=await readfile(FILE,"utf-8");
     return JSON.parse(data)
 };
+const addtocart=async (item)=>{
+    const products=await getcart()
+    products.push(item);
+    await savecart(products);
+};
 const main=async()=>{
     const cin=readline.createInterface({input:stdin,output:stdout});
    let choice;
