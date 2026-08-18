@@ -33,3 +33,13 @@ Reading and writing files
 -unlink()
 -link()
 -syslink()
+
+each item(name,price,quantity)
+1.add to cart
+2.slow cart
+3.remove from cart
+4.update quantity from cart
+
+## reuired files
+1.crud.js-it contains all the method and entry points
+2.product.js- it contains the product datails in array form
