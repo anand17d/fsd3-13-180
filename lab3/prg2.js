@@ -1,6 +1,9 @@
-import http from "http"
-const server=http.createServer((req,res)=>{
-    res.write("<h1>Hello Client</h1>");
-    res.end();
+import http from "http";
+
+const server = http.createServer((req, res) => {
+  res.write("<h1>Hello Client</h1>");
+  res.end();
+   res.write("<h1>Anand Dubey</h1>");
 });
-server.listen((4444,()=>console.log("server is running at 444...")));
+
+server.listen(4444, () => console.log("Server is running at 4444..."));
