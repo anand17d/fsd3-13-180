@@ -45,3 +45,30 @@ the content type and status code can be send back to client by two ways
 1.res.writehead
 2.res.setheader
 3.res.statusCode
+
+## response as html content
+1. res.end
+end("any html content")
+2. html file
+.read by createreadstream
+.pipe with res
+2. html content
+send any html tags/content by using
+res.end('<any html tags>')
+
+ JSON-javascript object notation
+ server return data only not html contents
+ because html contents will be written by frontend developer
+ the data is in json formate
+ json always stores data in key value,pair enclosed by {} arrray can be stored by []
+ one pair of {} will represent one object  and its property will be separated by,
+ ```{
+ id:1,
+ name:"mobile",2
+ price:2500,
+ rating:4.5
+ review:200
+ }
+ ```
+
+
