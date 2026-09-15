@@ -23,7 +23,7 @@ const appendData=async(fname,contents)=>{
 
 // await readData("happy.txt");
 
-// await writeData("happy.txt","I am very happy");
+//// await writeData("happy.txt","I am very happy")
 
-// await readData("happy.txt");
+// await readData ("happy.txt");
 
