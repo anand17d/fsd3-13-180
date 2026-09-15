@@ -70,5 +70,9 @@ res.end('<any html tags>')
  review:200
  }
  ```
+header is used to tell the client the type of data sent by the server 
+it may be html file , json file or json data plane text file css file
+any tokens for login 
+1
 
 
