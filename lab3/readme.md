@@ -75,4 +75,12 @@ it may be html file , json file or json data plane text file css file
 any tokens for login 
 1
 
+get- no parameter will pass to server when we recieve all items
+post-to add records we pass the value from body section in json 
+formate of api tester.
+delete-to delete any product we pass parameter that is id of the product.
+from url.
+update - to update any product we pass id from url and data to update from 
+
+
 
