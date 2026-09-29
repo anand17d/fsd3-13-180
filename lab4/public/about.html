@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Aether Mobile | Engineering the Future of Human Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: '#090A0F',
+                        'obsidian-card': '#11131E',
+                        'obsidian-border': '#1F2438',
+                        aether: {
+                            cyan: '#00F0FF',
+                            violet: '#A855F7',
+                            magenta: '#EC4899',
+                            glow: '#3B82F6',
+                            emerald: '#10B981'
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 5s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite linear',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { opacity: '0.3', filter: 'blur(50px)' },
+                            '100%': { opacity: '0.7', filter: 'blur(70px)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #06070B;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(17, 19, 30, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-glow {
+            background: rgba(17, 19, 30, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            box-shadow: 0 0 30px -10px rgba(0, 240, 255, 0.2);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00F0FF 0%, #A855F7 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-radial {
+            background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(6, 7, 11, 0) 70%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090A0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2438;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A855F7;
+        }
+        /* Comparison Slider */
+        .comparison-container {
+            position: relative;
+            user-select: none;
+        }
+        .img-comp-overlay {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-200">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-aether-cyan via-aether-violet to-aether-magenta p-[2px] transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-full h-full bg-obsidian rounded-[10px] flex items-center justify-center">
+                        <span class="text-xl font-black text-gradient">Æ</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-wider text-white">AETHER</span>
+                    <span class="text-[10px] uppercase tracking-widest text-aether-cyan font-semibold -mt-1">Mobile</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="index.html" class="hover:text-aether-cyan transition-colors">Home</a>
+                <a href="#story" class="hover:text-aether-cyan transition-colors">Our Story</a>
+                <a href="#values" class="hover:text-aether-cyan transition-colors">Philosophy</a>
+                <a href="#team" class="hover:text-aether-cyan transition-colors">Leadership</a>
+                <a href="#innovations" class="hover:text-aether-cyan transition-colors">Innovation Lab</a>
+                <a href="#impact" class="hover:text-aether-cyan transition-colors">Impact</a>
+                <a href="#about-hero" class="text-aether-cyan border-b-2 border-aether-cyan pb-1 font-semibold">About Us</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#careers" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-full group bg-gradient-to-br from-aether-cyan via-aether-violet to-aether-magenta hover:text-white text-white">
+                    <span class="relative px-5 py-2 transition-all ease-in duration-75 bg-obsidian/90 rounded-full group-hover:bg-opacity-0 font-semibold text-xs uppercase tracking-wider">
+                        Join Our Team
+                    </span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-white/10 px-6 py-6 flex flex-col gap-4">
+            <a href="index.html" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Home</a>
+            <a href="#story" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Our Story</a>
+            <a href="#values" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Philosophy</a>
+            <a href="#team" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Leadership</a>
+            <a href="#innovations" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Innovation Lab</a>
+            <a href="#impact" class="text-gray-300 hover:text-aether-cyan text-lg py-2">Impact</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section id="about-hero" class="relative pt-36 pb-20 md:py-44 flex items-center justify-center overflow-hidden bg-gradient-radial">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-aether-violet/20 rounded-full animate-pulse-glow pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 w-[450px] h-[450px] bg-aether-cyan/15 rounded-full animate-pulse-glow pointer-events-none" style="animation-delay: -2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-aether-cyan/40 text-xs font-semibold uppercase tracking-widest text-aether-cyan mb-6">
+                <span class="w-2 h-2 rounded-full bg-aether-cyan animate-ping"></span>
+                The Aether Manifesto
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-tight mb-6">
+                Engineering the Future of <br class="hidden sm:inline">
+                <span class="text-gradient">Human Connection.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed mb-16">
+                Founded at the intersection of privacy-first AI, cutting-edge material science, and uncompromising minimalist design. We build technology that empowers humanity without owning it.
+            </p>
+
+            <!-- Floating Interactive Glassmorphism Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+                <div class="glass-panel-glow p-6 rounded-2xl text-center transform hover:-translate-y-1 transition duration-300">
+                    <span class="block text-3xl sm:text-4xl font-extrabold text-aether-cyan mb-1">120+</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Global Patents</span>
+                    <p class="text-[11px] text-gray-500 mt-1">In Neural NPU & Sapphire Optics</p>
+                </div>
+
+                <div class="glass-panel-glow p-6 rounded-2xl text-center transform hover:-translate-y-1 transition duration-300">
+                    <span class="block text-3xl sm:text-4xl font-extrabold text-aether-emerald mb-1">0%</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Net Carbon Footprint</span>
+                    <p class="text-[11px] text-gray-500 mt-1">Certified Zero-Impact Operations</p>
+                </div>
+
+                <div class="glass-panel-glow p-6 rounded-2xl text-center transform hover:-translate-y-1 transition duration-300">
+                    <span class="block text-3xl sm:text-4xl font-extrabold text-aether-violet mb-1">12M+</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Active Ecosystem Users</span>
+                    <p class="text-[11px] text-gray-500 mt-1">Across 85+ Nations</p>
+                </div>
+
+                <div class="glass-panel-glow p-6 rounded-2xl text-center transform hover:-translate-y-1 transition duration-300">
+                    <span class="block text-3xl sm:text-4xl font-extrabold text-aether-magenta mb-1">100%</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Recycled Titanium</span>
+                    <p class="text-[11px] text-gray-500 mt-1">Grade 5 Reclaimed Chassis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Interactive Our Story / Timeline Section -->
+    <section id="story" class="py-24 relative bg-obsidian-card/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-aether-cyan">Evolutionary Journey</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">From Garage Prototype to Global Paradigm</p>
+                <p class="text-gray-400">Click on any milestone below to inspect our technological evolution.</p>
+            </div>
+
+            <!-- Milestone Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterTimeline('all')" id="timeline-btn-all" class="timeline-filter-btn active-filter px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-aether-cyan text-obsidian shadow-[0_0_15px_#00F0FF]">
+                    All Milestones
+                </button>
+                <button onclick="filterTimeline('hardware')" id="timeline-btn-hardware" class="timeline-filter-btn px-5 py-2.5 rounded-full text-xs font-bold glass-panel text-gray-400 hover:text-white transition-all">
+                    Hardware
+                </button>
+                <button onclick="filterTimeline('ai')" id="timeline-btn-ai" class="timeline-filter-btn px-5 py-2.5 rounded-full text-xs font-bold glass-panel text-gray-400 hover:text-white transition-all">
+                    AI Breakthroughs
+                </button>
+                <button onclick="filterTimeline('sustainability')" id="timeline-btn-sustainability" class="timeline-filter-btn px-5 py-2.5 rounded-full text-xs font-bold glass-panel text-gray-400 hover:text-white transition-all">
+                    Sustainability
+                </button>
+            </div>
+
+            <!-- Timeline Vertical Grid -->
+            <div class="relative border-l-2 border-white/10 ml-4 md:ml-1/2 space-y-12 max-w-4xl mx-auto">
+                
+                <!-- Event 1: 2021 -->
+                <div class="timeline-item relative pl-8 md:pl-0 group" data-category="ai">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-aether-cyan shadow-[0_0_10px_#00F0FF] group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-aether-cyan transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono font-bold text-aether-cyan">Q3 2021 • Garage Genesis</span>
+                            <span class="text-[10px] bg-aether-cyan/20 text-aether-cyan px-2.5 py-0.5 rounded-full font-bold uppercase">AI Architecture</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">The First Local Neural Engine Prototype</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Founders Elena Vance and Dr. Marcus Thorne assembled the first NPU prototype running on-device generative text without transmitting a single byte to external cloud servers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 2: 2023 -->
+                <div class="timeline-item relative pl-8 md:pl-0 group" data-category="sustainability">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-aether-emerald shadow-[0_0_10px_#10B981] group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-aether-emerald transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono font-bold text-aether-emerald">Q2 2023 • Material Science</span>
+                            <span class="text-[10px] bg-aether-emerald/20 text-aether-emerald px-2.5 py-0.5 rounded-full font-bold uppercase">Sustainability</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">100% Recycled Rare Earth Metals Breakthrough</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Aether secured exclusive closed-loop supply chains to extract 100% reclaimed titanium alloy, neodymium magnets, and cobalt from discarded electronics.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 3: 2024 -->
+                <div class="timeline-item relative pl-8 md:pl-0 group" data-category="hardware">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-aether-violet shadow-[0_0_10px_#A855F7] group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-aether-violet transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono font-bold text-aether-violet">Q4 2024 • Optics Unveiling</span>
+                            <span class="text-[10px] bg-aether-violet/20 text-aether-violet px-2.5 py-0.5 rounded-full font-bold uppercase">Hardware</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Synthetic Sapphire Glass Patent</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Patented synthetic diamond-sapphire substrate glass capable of surviving drops onto solid concrete from up to 5 meters while maintaining zero surface scratches.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 4: 2026 -->
+                <div class="timeline-item relative pl-8 md:pl-0 group" data-category="hardware">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-aether-magenta shadow-[0_0_10px_#EC4899] group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-aether-magenta transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono font-bold text-aether-magenta">2026 • Flagship Debut</span>
+                            <span class="text-[10px] bg-aether-magenta/20 text-aether-magenta px-2.5 py-0.5 rounded-full font-bold uppercase">Global Launch</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Aether Phone Ultra Global Launch</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Official release of Aether Phone Ultra across 85 countries, setting a new benchmark for mobile hardware efficiency, privacy-first AI, and repairability.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Core Philosophy & Values Grid -->
+    <section id="values" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-aether-violet">Guiding Principles</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Engineering Without Compromise</p>
+                <p class="text-gray-400">Click any card to expand deep insight into our engineering philosophy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Value Card 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-aether-emerald/50 transition duration-300 cursor-pointer group" onclick="toggleValueDrawer('drawer-1')">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-aether-emerald/10 border border-aether-emerald/30 flex items-center justify-center text-aether-emerald text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">01 / PHILOSOPHY</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Zero-Compromise Sustainability</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        We reject planned obsolescence. Every component is designed to be 100% recyclable, ethically sourced, and packed in plastic-free biodegradable algae fibers.
+                    </p>
+                    <div id="drawer-1" class="hidden text-xs text-gray-300 pt-4 border-t border-white/10 space-y-2">
+                        <p class="text-aether-emerald font-semibold">Deep Dive:</p>
+                        <p>Our closed-loop manufacturing recycles 99.8% of process water and relies strictly on solar energy for component fabrication across all facilities.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-aether-emerald mt-4">
+                        <span>Click to expand details</span>
+                        <i class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Value Card 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-aether-cyan/50 transition duration-300 cursor-pointer group" onclick="toggleValueDrawer('drawer-2')">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-aether-cyan/10 border border-aether-cyan/30 flex items-center justify-center text-aether-cyan text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">02 / PHILOSOPHY</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Neural Hardware Synergy</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        AI should serve you, not track you. Our Quantum Neural X1 processes voice, vision, and contextual queries strictly on-device with zero remote cloud telemetry.
+                    </p>
+                    <div id="drawer-2" class="hidden text-xs text-gray-300 pt-4 border-t border-white/10 space-y-2">
+                        <p class="text-aether-cyan font-semibold">Deep Dive:</p>
+                        <p>By enforcing local model execution via 45 TOPS hardware acceleration, your biometric data and conversations never leave your physical device enclosure.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-aether-cyan mt-4">
+                        <span>Click to expand details</span>
+                        <i class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Value Card 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-aether-violet/50 transition duration-300 cursor-pointer group" onclick="toggleValueDrawer('drawer-3')">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-aether-violet/10 border border-aether-violet/30 flex items-center justify-center text-aether-violet text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">03 / PHILOSOPHY</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Precision Craftsmanship</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        Forged from aerospace-grade Grade 5 reclaimed Titanium and diamond-synthesized sapphire glass for unprecedented durability and timeless aesthetic warmth.
+                    </p>
+                    <div id="drawer-3" class="hidden text-xs text-gray-300 pt-4 border-t border-white/10 space-y-2">
+                        <p class="text-aether-violet font-semibold">Deep Dive:</p>
+                        <p>Each chassis undergoes a 72-hour CNC milling process followed by micro-bead blasting to yield an ultra-ergonomic satin titanium tactile grip.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-aether-violet mt-4">
+                        <span>Click to expand details</span>
+                        <i class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Value Card 4 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-aether-magenta/50 transition duration-300 cursor-pointer group" onclick="toggleValueDrawer('drawer-4')">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-aether-magenta/10 border border-aether-magenta/30 flex items-center justify-center text-aether-magenta text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">04 / PHILOSOPHY</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Transparent & Repairable Design</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        Right-to-repair is built into our DNA. Modular internal components allow easy battery, camera module, and screen replacements with standard household tools.
+                    </p>
+                    <div id="drawer-4" class="hidden text-xs text-gray-300 pt-4 border-t border-white/10 space-y-2">
+                        <p class="text-aether-magenta font-semibold">Deep Dive:</p>
+                        <p>We provide open-source repair manuals, 3D printable chassis replacement files, and guaranteed spare parts availability for 10 years.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-aether-magenta mt-4">
+                        <span>Click to expand details</span>
+                        <i class="fa-solid fa-chevron-down group-hover:translate-y-0.5 transition-transform"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Leadership & Key Innovators Team Section -->
+    <section id="team" class="py-24 relative bg-obsidian-card/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-aether-cyan">The Architects</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Meet Our Leadership Team</p>
+                <p class="text-gray-400">Pioneers in quantum silicon, material science, and privacy philosophy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Team Member 1 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-aether-cyan transition-all group">
+                    <div class="h-64 bg-slate-800 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Elena Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Elena Vance</h3>
+                            <p class="text-xs text-aether-cyan font-semibold uppercase tracking-wider">Co-Founder & CEO</p>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed italic">
+                            "Technology should amplify human intent without extracting our personal lives."
+                        </p>
+                        <div class="flex gap-3 text-gray-400 text-sm pt-2">
+                            <a href="#" class="hover:text-aether-cyan"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-aether-cyan"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" class="hover:text-aether-cyan"><i class="fa-solid fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-aether-violet transition-all group">
+                    <div class="h-64 bg-slate-800 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Dr. Marcus Thorne" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Dr. Marcus Thorne</h3>
+                            <p class="text-xs text-aether-violet font-semibold uppercase tracking-wider">Chief Hardware Architect</p>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed italic">
+                            "We designed the 2nm Quantum NPU to perform 45 TOPS while sipping minimal energy."
+                        </p>
+                        <div class="flex gap-3 text-gray-400 text-sm pt-2">
+                            <a href="#" class="hover:text-aether-violet"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-aether-violet"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-aether-magenta transition-all group">
+                    <div class="h-64 bg-slate-800 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" alt="Aria Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Aria Chen</h3>
+                            <p class="text-xs text-aether-magenta font-semibold uppercase tracking-wider">VP of AI Research</p>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed italic">
+                            "Our mission is to prove that on-device models can outperform cloud monopolies in speed and security."
+                        </p>
+                        <div class="flex gap-3 text-gray-400 text-sm pt-2">
+                            <a href="#" class="hover:text-aether-magenta"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-aether-magenta"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 hover:border-aether-emerald transition-all group">
+                    <div class="h-64 bg-slate-800 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Julian Meyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Julian Meyer</h3>
+                            <p class="text-xs text-aether-emerald font-semibold uppercase tracking-wider">Chief Design Officer</p>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed italic">
+                            "True elegance lives in eliminating every non-essential edge, seam, and distraction."
+                        </p>
+                        <div class="flex gap-3 text-gray-400 text-sm pt-2">
+                            <a href="#" class="hover:text-aether-emerald"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-aether-emerald"><i class="fa-brands fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Interactive Innovation Lab / Technology Deep Dive Section -->
+    <section id="innovations" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-aether-cyan">Tech Deep Dive</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Aether Engineering vs Industry Standards</p>
+                <p class="text-gray-400">Explore our four key foundational pillars and compare hardware performance.</p>
+            </div>
+
+            <!-- Tab Buttons for 4 Key Innovations -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+                <button onclick="switchLabTab('lab-glass')" id="lab-btn-glass" class="lab-tab-btn active-lab px-4 py-3 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-2 bg-aether-cyan text-obsidian shadow-[0_0_15px_#00F0FF]">
+                    <i class="fa-solid fa-gem"></i> Aether Glass
+                </button>
+                <button onclick="switchLabTab('lab-npu')" id="lab-btn-npu" class="lab-tab-btn px-4 py-3 rounded-2xl text-xs font-bold glass-panel text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-microchip"></i> Neural Core V1
+                </button>
+                <button onclick="switchLabTab('lab-power')" id="lab-btn-power" class="lab-tab-btn px-4 py-3 rounded-2xl text-xs font-bold glass-panel text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> Solid-State Power
+                </button>
+                <button onclick="switchLabTab('lab-modular')" id="lab-btn-modular" class="lab-tab-btn px-4 py-3 rounded-2xl text-xs font-bold glass-panel text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cubes"></i> Modular Architecture
+                </button>
+            </div>
+
+            <!-- Innovation Details Container -->
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 min-h-[380px] flex flex-col justify-center">
+                
+                <!-- LAB TAB 1: Aether Glass -->
+                <div id="lab-glass" class="lab-content space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-4">
+                            <span class="text-xs uppercase font-bold text-aether-cyan tracking-wider">Optics & Durability</span>
+                            <h3 class="text-3xl font-bold text-white">Diamond-Synthesized Sapphire</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Traditional glass shatters easily under high impact. Aether Glass is engineered through a 1,200°C plasma vapor deposition process that fuses synthetic diamond lattice with sapphire crystal.
+                            </p>
+                            <ul class="text-xs text-gray-300 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-cyan"></i> Mohs Hardness Scale Rating 9.5 (Diamond = 10)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-cyan"></i> 0.01% Reflection Anti-Glare Nanocoating</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300">Hardness Test (Mohs Scale)</h4>
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-400">Traditional Smartphone Glass</span>
+                                        <span class="text-gray-400">Level 6</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-gray-500 h-full w-[60%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-aether-cyan font-bold">Aether Diamond Sapphire Glass</span>
+                                        <span class="text-aether-cyan font-bold">Level 9.5</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-aether-cyan h-full w-[95%] shadow-[0_0_10px_#00F0FF]"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAB TAB 2: Neural Core V1 -->
+                <div id="lab-npu" class="lab-content hidden space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-4">
+                            <span class="text-xs uppercase font-bold text-aether-violet tracking-wider">Silicon Engineering</span>
+                            <h3 class="text-3xl font-bold text-white">45 TOPS On-Device NPU</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Our dedicated AI silicon processes complex 7B parameter LLMs locally in under 80 milliseconds without requiring cloud connections or user tracking data.
+                            </p>
+                            <ul class="text-xs text-gray-300 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-violet"></i> Zero Cloud Latency or Data Transmission</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-violet"></i> 3x Efficiency Ratio per Watt vs Competitors</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300">AI Compute Speed (TOPS)</h4>
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-400">Industry Standard NPU</span>
+                                        <span class="text-gray-400">18 TOPS</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-gray-500 h-full w-[40%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-aether-violet font-bold">Aether Quantum Neural X1</span>
+                                        <span class="text-aether-violet font-bold">45 TOPS</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-aether-violet h-full w-[100%] shadow-[0_0_10px_#A855F7]"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAB TAB 3: Solid-State Power -->
+                <div id="lab-power" class="lab-content hidden space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-4">
+                            <span class="text-xs uppercase font-bold text-aether-emerald tracking-wider">Energy Chemistry</span>
+                            <h3 class="text-3xl font-bold text-white">Silicon-Anode Matrix</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Replacing liquid volatile electrolytes with solid-state silicon matrix cells yields 20% higher density while eliminating thermal degradation risks.
+                            </p>
+                            <ul class="text-xs text-gray-300 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-emerald"></i> 2,000 Full Charge Cycles (4x Industry Avg)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-emerald"></i> 120W GaN Charging (0 to 100% in 14 Mins)</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300">Lifespan Retention (After 1,500 Cycles)</h4>
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-400">Lithium-Ion Battery</span>
+                                        <span class="text-gray-400">60% Remaining</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-gray-500 h-full w-[60%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-aether-emerald font-bold">Aether Silicon Solid-State</span>
+                                        <span class="text-aether-emerald font-bold">92% Remaining</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-aether-emerald h-full w-[92%] shadow-[0_0_10px_#10B981]"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAB TAB 4: Modular Architecture -->
+                <div id="lab-modular" class="lab-content hidden space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-4">
+                            <span class="text-xs uppercase font-bold text-aether-magenta tracking-wider">Repairability</span>
+                            <h3 class="text-3xl font-bold text-white">Click-In Hardware Swap</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Modular interior click-fasteners allow screen, battery, and lens upgrades without messy glue adhesives or specialized factory tools.
+                            </p>
+                            <ul class="text-xs text-gray-300 space-y-2 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-magenta"></i> iFixit 10/10 Perfect Repairability Score</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-aether-magenta"></i> Zero Glued Enclosures or Single-Use Screws</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-6 glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300">Average Battery Swap Time</h4>
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-400">Traditional Smartphones</span>
+                                        <span class="text-gray-400">45 Mins + Heat Gun</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-gray-500 h-full w-[90%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-aether-magenta font-bold">Aether Modular Chassis</span>
+                                        <span class="text-aether-magenta font-bold">3 Mins (Tool-less)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-aether-magenta h-full w-[15%] shadow-[0_0_10px_#EC4899]"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Global Impact & Sustainability Calculator -->
+    <section id="impact" class="py-24 relative bg-obsidian-card/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase font-bold text-aether-emerald tracking-widest">Interactive Impact Tool</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Calculate Your Ecological Savings</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        By choosing Aether's 100% recycled titanium chassis and long-lifecycle battery, you actively reduce global electronic waste and carbon emissions.
+                    </p>
+                    
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                        <label class="text-xs font-bold uppercase text-gray-300 block">Number of Household Devices Switched</label>
+                        <input type="range" id="impact-slider" min="1" max="10" value="3" class="w-full" oninput="updateImpact(this.value)">
+                        <div class="flex justify-between text-xs font-bold text-aether-emerald">
+                            <span>1 Device</span>
+                            <span id="impact-devices-count" class="text-base text-white">3 Devices</span>
+                            <span>10 Devices</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Display Screen -->
+                <div class="lg:col-span-7 glass-panel-glow p-8 sm:p-10 rounded-3xl border border-aether-emerald/30 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+                    
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center space-y-2">
+                        <i class="fa-solid fa-tree text-3xl text-aether-emerald mb-2"></i>
+                        <span id="co2-saved-val" class="text-4xl font-black text-white">162 kg</span>
+                        <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">CO₂ Emissions Avoided</span>
+                        <span class="text-[10px] text-gray-500">Equivalent to planting 8 trees</span>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center space-y-2">
+                        <i class="fa-solid fa-recycle text-3xl text-aether-cyan mb-2"></i>
+                        <span id="ewaste-saved-val" class="text-4xl font-black text-white">1.05 kg</span>
+                        <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Toxic E-Waste Diverted</span>
+                        <span class="text-[10px] text-gray-500">Heavy metals kept out of landfills</span>
+                    </div>
+
+                    <div class="sm:col-span-2 glass-panel p-4 rounded-xl border border-white/10 flex items-center justify-around text-xs text-gray-300">
+                        <span><i class="fa-solid fa-droplet text-blue-400 mr-2"></i> 2,400 Liters Water Conserved</span>
+                        <span><i class="fa-solid fa-sun text-amber-400 mr-2"></i> 100% Solar-Powered Assembly</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Join the Movement / Careers CTA -->
+    <section id="careers" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="glass-panel-glow p-10 sm:p-16 rounded-3xl border border-aether-violet/40 text-center max-w-4xl mx-auto space-y-8 relative overflow-hidden">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-aether-violet/20 border border-aether-violet text-aether-violet text-xs font-bold uppercase tracking-wider">
+                    We're Hiring Visionaries
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Shape the Next Generation of Mobile Tech</h2>
+                <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                    We are looking for passionate hardware engineers, quantum silicon designers, and privacy researchers to join our global headquarters in Zurich and Silicon Valley.
+                </p>
+
+                <!-- Open Positions Grid Preview -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-3xl mx-auto pt-4">
+                    <div onclick="openJobModal('Senior NPU Compiler Engineer', 'Zurich, Switzerland')" class="glass-panel p-4 rounded-xl border border-white/10 hover:border-aether-cyan cursor-pointer transition">
+                        <span class="block font-bold text-white text-xs">Senior NPU Compiler Engineer</span>
+                        <span class="block text-[10px] text-aether-cyan mt-1">Zurich, Switzerland • Full-time</span>
+                    </div>
+                    <div onclick="openJobModal('Lead Material Scientist (Solid State)', 'San Jose, CA')" class="glass-panel p-4 rounded-xl border border-white/10 hover:border-aether-violet cursor-pointer transition">
+                        <span class="block font-bold text-white text-xs">Lead Material Scientist</span>
+                        <span class="block text-[10px] text-aether-violet mt-1">San Jose, CA • Full-time</span>
+                    </div>
+                    <div onclick="openJobModal('Principal Privacy UI/UX Designer', 'Remote / London')" class="glass-panel p-4 rounded-xl border border-white/10 hover:border-aether-magenta cursor-pointer transition">
+                        <span class="block font-bold text-white text-xs">Privacy UI/UX Designer</span>
+                        <span class="block text-[10px] text-aether-magenta mt-1">Remote / London • Full-time</span>
+                    </div>
+                </div>
+
+                <button onclick="openModal('careers-modal')" class="px-8 py-4 rounded-full bg-gradient-to-r from-aether-cyan via-aether-violet to-aether-magenta text-white font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition transform hover:-translate-y-0.5">
+                    Explore All Open Roles
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-obsidian border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-white/10 text-xs text-gray-400">
+                <div class="col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl font-black text-gradient">Æ</span>
+                        <span class="text-lg font-bold text-white">AETHER MOBILE</span>
+                    </div>
+                    <p class="max-w-sm text-gray-400">Redefining mobile hardware and neural artificial intelligence for the modern era.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <span class="text-white font-bold uppercase tracking-wider block">Company</span>
+                    <a href="about.html" class="block text-aether-cyan font-semibold">About Us</a>
+                    <a href="#story" class="block hover:text-aether-cyan">Our Timeline</a>
+                    <a href="#values" class="block hover:text-aether-cyan">Philosophy</a>
+                    <a href="#team" class="block hover:text-aether-cyan">Leadership</a>
+                </div>
+
+                <div class="space-y-3">
+                    <span class="text-white font-bold uppercase tracking-wider block">Innovations</span>
+                    <a href="#innovations" class="block hover:text-aether-cyan">Aether Glass</a>
+                    <a href="#innovations" class="block hover:text-aether-cyan">Quantum NPU</a>
+                    <a href="#innovations" class="block hover:text-aether-cyan">Solid-State Battery</a>
+                    <a href="#innovations" class="block hover:text-aether-cyan">Modular Repair</a>
+                </div>
+
+                <div class="space-y-3">
+                    <span class="text-white font-bold uppercase tracking-wider block">Connect</span>
+                    <a href="#careers" class="block hover:text-aether-cyan">Careers</a>
+                    <a href="index.html#configure" class="block hover:text-aether-cyan">Pre-Order Ultra</a>
+                    <a href="#" class="block hover:text-aether-cyan">Press & Media Kit</a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Aether Mobile Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-300">Sustainability Report</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Job Application Modal -->
+    <div id="careers-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-panel p-8 rounded-3xl border border-aether-violet/40 max-w-lg w-full relative space-y-6">
+            <button onclick="closeModal('careers-modal')" class="absolute top-5 right-5 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="space-y-2">
+                <span class="text-xs font-bold text-aether-violet uppercase tracking-widest">Join Our Vision</span>
+                <h3 id="modal-role-title" class="text-2xl font-bold text-white">Apply for Open Position</h3>
+                <p id="modal-role-location" class="text-xs text-aether-cyan font-semibold">Global Engineering Network</p>
+            </div>
+
+            <form onsubmit="handleJobApply(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-gray-300 mb-1 font-semibold">Full Name</label>
+                    <input type="text" required placeholder="Elena Vance" class="w-full px-4 py-3 rounded-xl glass-panel border border-white/20 text-white focus:outline-none focus:border-aether-violet">
+                </div>
+                <div>
+                    <label class="block text-gray-300 mb-1 font-semibold">Email Address</label>
+                    <input type="email" required placeholder="elena@domain.com" class="w-full px-4 py-3 rounded-xl glass-panel border border-white/20 text-white focus:outline-none focus:border-aether-violet">
+                </div>
+                <div>
+                    <label class="block text-gray-300 mb-1 font-semibold">Portfolio / GitHub / LinkedIn URL</label>
+                    <input type="url" required placeholder="https://linkedin.com/in/profile" class="w-full px-4 py-3 rounded-xl glass-panel border border-white/20 text-white focus:outline-none focus:border-aether-violet">
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-full bg-gradient-to-r from-aether-violet to-aether-magenta text-white font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition">
+                    Submit Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-box" class="fixed bottom-6 right-6 z-50 hidden glass-panel border border-aether-cyan p-4 rounded-2xl shadow-2xl flex items-center gap-3 text-xs text-white">
+        <i class="fa-solid fa-circle-check text-aether-cyan text-lg"></i>
+        <span id="notification-text">Application received!</span>
+    </div>
+
+    <script>
+        // Mobile Drawer Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Timeline Filter Logic
+        function filterTimeline(category) {
+            const items = document.querySelectorAll('.timeline-item');
+            const buttons = document.querySelectorAll('.timeline-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-aether-cyan', 'text-obsidian', 'shadow-[0_0_15px_#00F0FF]');
+                btn.classList.add('glass-panel', 'text-gray-400');
+            });
+
+            const activeBtn = document.getElementById('timeline-btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-aether-cyan', 'text-obsidian', 'shadow-[0_0_15px_#00F0FF]');
+                activeBtn.classList.remove('glass-panel', 'text-gray-400');
+            }
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Values Detail Drawer Toggle
+        function toggleValueDrawer(drawerId) {
+            const drawer = document.getElementById(drawerId);
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+            }
+        }
+
+        // Innovation Lab Tab Switcher
+        function switchLabTab(tabId) {
+            document.querySelectorAll('.lab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lab-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-aether-cyan', 'text-obsidian', 'shadow-[0_0_15px_#00F0FF]');
+                btn.classList.add('glass-panel', 'text-gray-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('lab-btn-' + tabId.replace('lab-', ''));
+            if(activeBtn) {
+                activeBtn.classList.add('bg-aether-cyan', 'text-obsidian', 'shadow-[0_0_15px_#00F0FF]');
+                activeBtn.classList.remove('glass-panel', 'text-gray-400');
+            }
+        }
+
+        // Global Sustainability Calculator Logic
+        function updateImpact(val) {
+            document.getElementById('impact-devices-count').textContent = val + (val == 1 ? " Device" : " Devices");
+            
+            const co2 = (val * 54).toFixed(0); // 54kg avoided per device
+            const ewaste = (val * 0.35).toFixed(2); // 0.35kg per device
+
+            document.getElementById('co2-saved-val').textContent = co2 + " kg";
+            document.getElementById('ewaste-saved-val').textContent = ewaste + " kg";
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function openJobModal(title, location) {
+            document.getElementById('modal-role-title').textContent = title;
+            document.getElementById('modal-role-location').textContent = location;
+            openModal('careers-modal');
+        }
+
+        function handleJobApply(e) {
+            e.preventDefault();
+            closeModal('careers-modal');
+            showNotification('Application submitted! Our talent team will reach out shortly.');
+            e.target.reset();
+        }
+
+        function showNotification(msg) {
+            const box = document.getElementById('notification-box');
+            const text = document.getElementById('notification-text');
+            text.textContent = msg;
+            box.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
