@@ -13,3 +13,18 @@
 9. send method  is used to reward back contents to the client it 
 may be html , json ,html file, plane text. we can also add status code
 with status function it can be chain witth send function.
+
+array.map(item)=>{
+    return
+}
+array.map((item)=>())
+```
+
+
+
+
+in first we have to use explicit return keyword whereas in syntax 2 does not required
+exclude number of property from any json object
+
+to search any item in jason array we use find method it will return on unsuccessful or object on successful.
+arr.find((item)=>item.id===id);
