@@ -17,6 +17,31 @@ app.get("/api/products",(req,res)=>{
     
 });
 
+// query string / request query must be before req parameters or dynamic url
+
+app.get("/api/products/query",(req,res)=>{
+       const {search,limit}=req.query;
+       console.log("search:",search);
+       console.log("limit:",limit);
+       let sortedproducts=[...products]//copy all products
+       if(search){
+        sortedproducts=sortedproducts.filter((item)=>item.name.toLowerCase().startsWith(search),
+        );
+       }
+       if(limit){
+        sortedproducts =sortedproducts.slice(0,Number(limit))
+       }
+       if(sortedproducts.length<1){
+        res
+        .status(200)
+        .json({"data":[],msg:'no product matched your search criteria'})
+       }else{
+        res
+        .status(200)
+        .json({count:sortedproducts.length,data:sortedproducts});
+       }
+       res.send("product search page")
+});
 
 app.get("/api/products/:id",(req,res)=>{
     const {id} = req.params;
@@ -30,6 +55,8 @@ app.get("/api/products/:id",(req,res)=>{
 
     // res.send(`will show product id:, ${id}`);
 });
+
+
 
 
 app.use((req,res)=>{
