@@ -23,3 +23,10 @@ when js function returns directly html contents , called component
 2. it must return html
 3. must be close as the calling time 
 4. it can be used anywhere anytime
+component(react)-user defined 
+any web app is built by different components.
+it is special type of js function that will return single pr parent html content.
+-it may call user defined html tags.
+it must call inside angle <> 
+-must be closed </>
+-the first char must be capital letter
